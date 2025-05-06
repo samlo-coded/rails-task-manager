@@ -1,0 +1,11 @@
+<h1>All Tasks</h1>
+
+<% @tasks.each do |task| %>
+  <div>
+    <h2><%= link_to task.title, task_path(task) %></h2>
+    <p><%= task.details %></p>
+    <p>Completed: <%= task.completed ? 'Yes' : 'No' %></p>
+    <%= link_to 'Edit', edit_task_path(task) %>
+    <%= button_to 'Delete', task_path(task), method: :delete %>
+  </div>
+<% end %>
